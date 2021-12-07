@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "semantic-ui-css/semantic.min.css"
+import FuncApp from './FuncApp';
 
 ReactDOM.render(
   <React.StrictMode>
+    <h1>Class Component App</h1>
     <App />
+    <hr style ={{marginTop: "100px", marginBottom: "80px"}} />
+    <h1>Functional Component App</h1>
+    <FuncApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
