@@ -8,11 +8,13 @@ import FuncApp from './FuncApp';
 
 ReactDOM.render(
   <React.StrictMode>
+    <div className ="main-container">
     <h1>Class Component App</h1>
     <App />
-    <hr style ={{marginTop: "100px", marginBottom: "80px"}} />
+    <hr style ={{marginTop: "100px", marginBottom: "80px", padding: "30px", color: "white", backgroundColor: "white"}} />
     <h1>Functional Component App</h1>
     <FuncApp />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );

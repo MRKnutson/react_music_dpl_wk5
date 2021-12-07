@@ -30,7 +30,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container className="main-container">
+      <Container>
         <div className="App">
           <Segment raised padded textAlign='center'
             style={{ minHeight: '200px', padding: '1em 0em' }}
