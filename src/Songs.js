@@ -1,6 +1,6 @@
 import React from "react"
+import { Card } from "semantic-ui-react";
 import Song from "./Song";
-import SongForm from "./SongForm";
 
 class Songs extends React.Component {
 
@@ -12,10 +12,10 @@ class Songs extends React.Component {
 
   render(){
     return(
-      <div>
-        <h1>Render songs below:</h1>
-        <SongForm addSong = {this.props.addSong}/>
-        {this.renderSongs()}
+      <div style={{marginTop: "15px"}}>
+        <Card.Group raised="true" centered>
+          {this.renderSongs()}
+        </Card.Group>
       </div>
     );
   }

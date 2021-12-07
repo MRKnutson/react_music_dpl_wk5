@@ -1,18 +1,27 @@
 import React from "react"
+import { Button, Card } from "semantic-ui-react";
 import SongForm from "./SongForm";
 
 class Song extends React.Component {
   render() {
     return (
-      <div>
-        <hr />
-        <h3>{this.props.song.name}</h3>
-        <p>{this.props.song.artist}</p>
-        <p>{this.props.song.id}</p>
-        <button onClick = {()=>this.props.deleteSong(this.props.song.id)}>Delete</button>
-        <SongForm song= {this.props.song} updateSong={this.props.updateSong}/>
-        <hr />
-      </div>
+      <Card>
+        <Card.Content>
+          <Card.Header>Title: {this.props.song.name}</Card.Header>
+          <Card.Meta>ID: {this.props.song.id}</Card.Meta>
+          <Card.Description>
+            Artist: {this.props.song.artist}
+          </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <div className='ui two buttons'>
+            <SongForm song= {this.props.song} updateSong={this.props.updateSong} />
+            <Button color='red' onClick = {()=>this.props.deleteSong(this.props.song.id)}>
+              Delete
+            </Button>
+          </div>
+        </Card.Content>
+      </Card>
     )
   }
 }

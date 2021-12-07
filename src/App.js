@@ -1,7 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import Songs from './Songs';
+import { Container, Header, Segment } from 'semantic-ui-react';
+import SongForm from './SongForm';
 
 class App extends React.Component {
   state = {
@@ -29,10 +30,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Music List</h1>
-        <Songs songs ={this.state.songs} addSong={this.addSong} updateSong = {this.updateSong} deleteSong={this.deleteSong}/>
-      </div>
+      <Container className="main-container">
+        <div className="App">
+          <Segment raised padded textAlign='center'
+            style={{ minHeight: '200px', padding: '1em 0em' }}
+            vertical
+            inverted>
+            <Header size= 'huge' style={{paddingTop: '40px'}}>Mike's Music List</Header>
+            <SongForm addSong={this.addSong}/>
+          </Segment>
+          <Songs songs ={this.state.songs} addSong={this.addSong} updateSong = {this.updateSong} deleteSong={this.deleteSong}/>
+        </div>
+      </Container>
     );
   }
 }
