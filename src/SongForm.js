@@ -1,5 +1,7 @@
 import React from "react"
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
+import { Header, Icon, Modal } from "semantic-ui-react";
+import styled from "styled-components";
+import { BLACK, GREEN, InputLabel, StyledButton, StyledInput, WHITE } from "./components/Styles";
 
 class SongForm extends React.Component {
 
@@ -54,30 +56,31 @@ class SongForm extends React.Component {
     return(
       <Modal
       closeIcon
+      dimmer='blurring'
+      size= 'small'
       open={this.state.open}
-      trigger={<Button color = "green" border="2px solid black">{this.props.song ? "Edit Song" : "Add New Song"}</Button>}
+      trigger={<StyledButton color={GREEN} >{this.props.song ? "Edit Song" : "Add New Song"}</StyledButton>}
       onClose={() => this.setState({open:false})}
       onOpen={() => this.setState({open:true})}
     >
-      <Header icon='music' content={this.props.song ? "Update Song" : "Add New Song"} />
+      <ModalHeader icon='music' content={this.props.song ? "Update Song" : "Add New Song"} />
       <Modal.Content>
       <div>
-        <h1>song form here:</h1>
         <form onSubmit={this.handleSubmit}>
-          <p>Song name:</p>
-          <input name="name" label="Name" value={this.state.name} onChange={this.handleChange}/>
-          <p>Song artist:</p>
-          <input name="artist" label="Artist" value={this.state.artist} onChange={this.handleChange}/>
+          <InputLabel>Song name:</InputLabel>
+          <StyledInput name="name" label="Name" value={this.state.name} onChange={this.handleChange}/>
+          <InputLabel>Song artist:</InputLabel>
+          <StyledInput name="artist" label="Artist" value={this.state.artist} onChange={this.handleChange}/>
         </form>
       </div>
       </Modal.Content>
       <Modal.Actions>
-        <Button color='red' onClick={() => this.closeModal()}>
+        <StyledButton color='red' onClick={() => this.closeModal()}>
           <Icon name='remove' /> Cancel
-        </Button>
-        <Button color='green' onClick={this.handleSubmit}>
+        </StyledButton>
+        <StyledButton color='green' onClick={this.handleSubmit}>
           <Icon name='checkmark' /> Submit
-        </Button>
+        </StyledButton>
       </Modal.Actions>
     </Modal>
       
@@ -86,3 +89,9 @@ class SongForm extends React.Component {
 };
 
 export default SongForm;
+
+const ModalHeader = styled(Header)`
+  background-color: ${BLACK} !important;
+  color: ${WHITE} !important;
+  border: 1px solid ${WHITE} !important;
+`

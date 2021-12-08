@@ -5,16 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "semantic-ui-css/semantic.min.css"
 import FuncApp from './FuncApp';
+import { AppContainer, StyledRule } from './components/Styles';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className ="main-container">
+    <AppContainer>
     <h1>Class Component App</h1>
+    <hr />
     <App />
-    <hr style ={{marginTop: "100px", marginBottom: "80px", padding: "30px", color: "white", backgroundColor: "white"}} />
+    <StyledRule />
     <h1>Functional Component App</h1>
+    <hr />
     <FuncApp />
-    </div>
+    </AppContainer>
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -23,3 +27,5 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+

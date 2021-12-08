@@ -1,12 +1,13 @@
 import React from "react"
 import { Card } from "semantic-ui-react";
+import FuncSong from "./FuncSong";
 import Song from "./Song";
 
 const FuncSongs=(props)=>{
 
   const renderSongs =()=>{
     return(props.songs.map((song)=>(
-      <Song key ={song.id} song={song} deleteSong={props.deleteSong} updateSong={props.updateSong}/>
+      <FuncSong key ={song.id} song={song} deleteSong={props.deleteSong} updateSong={props.updateSong}/>
     )))
   };
 
